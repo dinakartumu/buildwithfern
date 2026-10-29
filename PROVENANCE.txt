@@ -1,0 +1,62 @@
+gitbook-tests fixture corpus — provenance
+=========================================
+
+Repository : https://github.com/pageloop/gitbook-tests
+Commit     : 8c3f63deb41877fdb9d50d5427df303abdb61c10
+Subject    : "GITBOOK-SITE: Changes to test-site"
+Taken on   : 2026-09-07
+Scope      : VERBATIM copy of the whole tree at that commit. Nothing added, removed,
+             renamed or reformatted. This PROVENANCE.txt is the only file in this
+             directory that is not from the upstream repo.
+
+Why the whole repo rather than a sample
+---------------------------------------
+The acceptance loop (spec §7.5) resets pageloop/gitbook-tests to this exact sha before
+running against the live site. Fixture and live site are therefore the same artefact,
+and any divergence between them is a bug in one of the two, not fixture drift.
+
+Contents at this sha — 43 files
+-------------------------------
+  37  *.md          (32 content pages + 5 SUMMARY.md)   82 720 bytes of markdown
+   1  gitbook-docs.yaml                                  1 638 bytes
+   2  .gitbook/tags.yaml  (changelog/, documentation/)
+   3  *.jpg         (home/.gitbook/assets/)  api-reference.jpg 177 376 B,
+                    hosted.jpg 165 622 B, no-code.jpg 185 249 B
+  ---
+  43  files, 708 KB on disk
+
+Reproduce this copy
+-------------------
+    git clone https://github.com/pageloop/gitbook-tests.git /tmp/gitbook-tests
+    git -C /tmp/gitbook-tests checkout 8c3f63deb41877fdb9d50d5427df303abdb61c10
+    rsync -a --exclude '.git/' /tmp/gitbook-tests/ \
+        app/utils/gitbook-import/__tests__/fixtures/gitbook-tests/
+    # then restore this file, which the rsync does not carry:
+    #   git checkout -- app/utils/gitbook-import/__tests__/fixtures/gitbook-tests/PROVENANCE.txt
+
+Verify this copy is byte-identical to upstream
+----------------------------------------------
+    git clone https://github.com/pageloop/gitbook-tests.git /tmp/gitbook-tests-verify
+    git -C /tmp/gitbook-tests-verify checkout 8c3f63deb41877fdb9d50d5427df303abdb61c10
+    diff -r --exclude=.git --exclude=PROVENANCE.txt \
+        /tmp/gitbook-tests-verify \
+        app/utils/gitbook-import/__tests__/fixtures/gitbook-tests
+
+The copy checked in here was verified this way at creation time: `diff -r` reported no
+differences in either direction, and `git ls-tree -r --long` at the pinned sha lists
+exactly the 43 blobs above.
+
+What the golden test expects from this corpus (spec §5.7)
+---------------------------------------------------------
+  layout.pages.length      32   (one per content .md)
+  committed page files     33   (the 32 plus generated api-reference/index.mdx)
+  repo-derived served URLs 32   (live sitemap's 41 URLs minus its 9 /api-reference/*)
+  tabs                      5   Home, Documentation, API Reference, Changelog, Help Center
+  redirects                 9
+  blockers                  none
+  warnings                  space_page_less:section-3,
+                            openapi_spec_missing:gitbook-petstore,
+                            cross_space_unresolved:rBHPLaxmpwZv1eMYtJSj
+
+api-reference/ holds only a SUMMARY.md whose single entry is a `builtin:openapi` fence, so
+it contributes zero source pages and one generated placeholder page.
