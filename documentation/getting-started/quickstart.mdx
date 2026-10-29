@@ -1,0 +1,74 @@
+---
+title: Quickstart
+description: Go from sign-up to your first deploy in under five minutes.
+icon: bolt
+---
+
+This quickstart gets you to your first deploy as fast as possible. We'll skip most of the configuration — you can refine things later once you have something running.
+
+<Callout type="tip">
+  **Estimated time: 5 minutes.** All you need is an account and a project to deploy.
+</Callout>
+
+## Steps
+
+<Steps>
+  <Step title="Create your workspace">
+    Sign in and create a new workspace. The workspace name appears in URLs and email notifications, so pick something recognisable.
+
+    ```
+    yourcompany
+    ```
+  </Step>
+
+  <Step title="Connect a source">
+    Link a repository from your version control provider, or upload a project directly.
+
+    <Tabs>
+      <Tab title="Repository">
+        Click **Connect repository**, authenticate with your provider, and select the repository to import. The platform will detect your framework automatically.
+      </Tab>
+
+      <Tab title="Upload">
+        Drag and drop a project folder, or use the CLI:
+
+        ```bash
+        platform deploy ./my-project
+        ```
+      </Tab>
+
+      <Tab title="Template">
+        Browse the template gallery and click **Use template**. A new project will be created from the template in your workspace.
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Configure your build">
+    Most projects work with the auto-detected settings. If yours doesn't, override them in **Project settings → Build**.
+
+    ```yaml
+    build:
+      command: npm run build
+      output: dist/
+      node: 20
+    ```
+  </Step>
+
+  <Step title="Deploy">
+    Hit **Deploy**. Your project will build and go live at a generated subdomain. You can promote it to production or add a custom domain at any time.
+
+    <Callout type="info">
+      First builds typically take 1–3 minutes. Subsequent builds are faster because dependencies are cached.
+    </Callout>
+  </Step>
+</Steps>
+
+## What's next?
+
+You've shipped something — now make it yours.
+
+<Card title="Custom domains" href="/documentation/guides/custom-domains" />
+
+<Card title="Permissions" href="/documentation/core-concepts/permissions" />
+
+<Card title="Automations" href="/documentation/guides/automations" />

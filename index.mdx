@@ -1,0 +1,219 @@
+---
+title: Developer Platform
+description: Welcome to your team’s developer platform
+icon: house
+---
+
+Ask a question...
+
+Get started Authenticate Integrate Contribute
+
+<CardGroup cols={3}>
+  <Card title="No code" icon="leaf" href="/documentation" img="/assets/7acaf8cc2e66-no-code.jpg">Get started with the developer platform in 5 minutes.</Card>
+
+  <Card title="Hosted" icon="server" href="/documentation" img="/assets/7be3d4b32b6d-hosted.jpg">Learn more about hosting the developer platform.</Card>
+
+  <Card title="API reference" icon="terminal" href="/api-reference" img="/assets/969e7b9c6f02-api-reference.jpg">Browse, test, and implement APIs.</Card>
+</CardGroup>
+
+<Columns cols={2}>
+  <div>
+    ## Get started in minutes
+
+    Make your first API call in under 5 minutes.
+
+    This quickstart walks through the basic setup: create an account, generate an API key, and send a test request. The examples use the same request in several languages, so you can start with the one that matches your stack.
+
+    <Callout type="info">
+      **Customize your first request**
+
+      Explain what you're building and let AI tweak your quickstart.
+
+      What are you building?
+    </Callout>
+
+    <Callout type="warning">
+      **Need some help?**
+
+      Troubleshoot common issues or ask for help.
+
+      <Accordion title="I get a 401 Unauthorized error">
+        Check that your API key is present and valid.
+
+        Make sure you replaced `YOUR_API_KEY` in the example.
+
+        Confirm the `Authorization` header uses `Bearer YOUR_API_KEY`.
+      </Accordion>
+
+      <Accordion title="I get a 400 Bad Request error">
+        Check your request body first.
+
+        Make sure the JSON is valid and the `message` field is included.
+
+        Also confirm you send `Content-Type: application/json`.
+      </Accordion>
+
+      <Accordion title="The request succeeds, but the result is not what I expect">
+        Start with the sample payload before testing custom input.
+
+        Check the response `status` field to confirm whether the request was only queued.
+
+        If you change the payload shape, verify the endpoint accepts those fields.
+      </Accordion>
+
+      <Accordion title="My local example does not run">
+        Check that your runtime and dependencies are installed.
+
+        For JavaScript, install the SDK before running the example.
+
+        For Python, make sure `requests` is available in your environment.
+      </Accordion>
+
+      Explain what's happening...
+    </Callout>
+
+    With your first request done, use the guides for deeper setup and the API reference for endpoints and parameters.
+
+    <Button href="/documentation/getting-started/getting-started" variant="primary" icon="rocket-launch">Get started</Button> <Button href="/api-reference" variant="secondary" icon="terminal">API reference</Button>
+
+    &#x20;
+  </div>
+
+  <div>
+    <Steps>
+      <Step title="Create your API key">
+        Set up your account, then generate an API key for local testing and your first integration.
+
+        <Button href="http://app.gitbook.com/join" variant="primary">Sign up</Button> <Button href="http://app.gitbook.com/join" variant="secondary">Log in</Button>
+      </Step>
+
+      <Step title="Make your first request">
+        Pick a language below, replace `YOUR_API_KEY`, and run.
+
+        <Tabs>
+          <Tab title="JavaScript">
+            ```javascript
+            // Import the SDK
+            import ExampleAPI from "example-api";
+
+            // Initialize the client
+            const client = new ExampleAPI({ apiKey: "YOUR_API_KEY" });
+
+            // Send your first message
+            const response = await client.messages.send({
+              message: "Hello, world!"
+            });
+            ```
+          </Tab>
+
+          <Tab title="Python">
+            ```python
+            import requests
+
+            response = requests.post(
+                "https://api.example.com/messages",
+                headers={
+                    "Authorization": "Bearer YOUR_API_KEY",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "message": "Hello, world!"
+                },
+            )
+
+            print(response.json())
+            ```
+          </Tab>
+
+          <Tab title="cURL">
+            ```bash
+            curl -X POST https://api.example.com/messages \
+              -H "Authorization: Bearer YOUR_API_KEY" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "message": "Hello, world!"
+              }'
+            ```
+          </Tab>
+
+          <Tab title="Go">
+            ```go
+            package main
+
+            import (
+                "bytes"
+                "fmt"
+                "io"
+                "net/http"
+            )
+
+            func main() {
+                body := []byte(`{"message":"Hello, world!"}`)
+
+                req, err := http.NewRequest("POST", "https://api.example.com/messages", bytes.NewBuffer(body))
+                if err != nil {
+                    panic(err)
+                }
+
+                req.Header.Set("Authorization", "Bearer YOUR_API_KEY")
+                req.Header.Set("Content-Type", "application/json")
+
+                resp, err := http.DefaultClient.Do(req)
+                if err != nil {
+                    panic(err)
+                }
+                defer resp.Body.Close()
+
+                responseBody, err := io.ReadAll(resp.Body)
+                if err != nil {
+                    panic(err)
+                }
+
+                fmt.Println(string(responseBody))
+            }
+            ```
+          </Tab>
+        </Tabs>
+      </Step>
+
+      <Step title="Parse the response">
+        If the request succeeds, you should get a response like this:
+
+        ```json title="response.json"
+        {
+          "id": "msg_1234567890",
+          "message": "Hello, world!",
+          "status": "queued",
+          "createdAt": "2026-01-01T12:00:00Z"
+        }
+        ```
+      </Step>
+    </Steps>
+  </div>
+</Columns>
+
+<Columns cols={2}>
+  <div>
+    <Frame>
+      ![](/assets/ba4325241ccc-placeholder.png)
+    </Frame>
+  </div>
+
+  <div>
+    ## Learn more about the developer platform
+
+    Read guides, watch tutorials, and learn more about working with the developer platform and integrating it with your own stack.
+
+    <Button href="https://app.gitbook.com/o/DaDQkGCM7r2TghFSBFLQ/s/rBHPLaxmpwZv1eMYtJSj/" variant="primary" icon="book-open">Guides</Button> <Button href="/documentation" variant="secondary" icon="book">Documentation</Button>
+  </div>
+</Columns>
+
+## Join a community of over 3,000 developers
+
+Join our Discord community or create your first PR in just a few steps.
+
+<CardGroup cols={2}>
+  <Card title="Discord community" icon="discord" href="https://www.gitbook.com/">Join our Discord community to post questions, get help, and share resources with over 3,000 like-minded developers. <Button href="https://www.gitbook.com/" variant="secondary">Join Discord</Button></Card>
+
+  <Card title="GitHub" icon="github" href="https://www.gitbook.com/">Our product is 100% open source and built by developers just like you. Head to our GitHub repository to learn how to submit your first PR. <Button href="https://github.com/GitbookIO/gitbook-templates" variant="secondary">Submit a PR</Button></Card>
+</CardGroup>

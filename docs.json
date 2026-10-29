@@ -1,0 +1,310 @@
+{
+  "$schema": "https://docs.pageloop.ai/schema/v1.json",
+  "site": {
+    "name": "GitBook Walk Test"
+  },
+  "tabs": [
+    {
+      "tab": "Home",
+      "icon": "house",
+      "navigation": [
+        {
+          "page": "index"
+        }
+      ]
+    },
+    {
+      "tab": "Documentation",
+      "icon": "book-blank",
+      "navigation": [
+        {
+          "page": "documentation/index"
+        },
+        {
+          "group": "Getting Started",
+          "pages": [
+            {
+              "page": "documentation/getting-started/getting-started"
+            },
+            {
+              "page": "documentation/getting-started/quickstart"
+            },
+            {
+              "page": "documentation/getting-started/your-first-project"
+            }
+          ]
+        },
+        {
+          "group": "Core concepts",
+          "pages": [
+            {
+              "page": "documentation/core-concepts/core-concepts"
+            },
+            {
+              "page": "documentation/core-concepts/workspaces-and-projects"
+            },
+            {
+              "page": "documentation/core-concepts/permissions"
+            }
+          ]
+        },
+        {
+          "group": "Guides",
+          "pages": [
+            {
+              "page": "documentation/guides/guides"
+            },
+            {
+              "page": "documentation/guides/custom-domains"
+            },
+            {
+              "page": "documentation/guides/automations"
+            }
+          ]
+        },
+        {
+          "group": "Reference",
+          "pages": [
+            {
+              "page": "documentation/reference/reference"
+            },
+            {
+              "page": "documentation/reference/configuration"
+            },
+            {
+              "page": "documentation/reference/glossary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "API Reference",
+      "icon": "terminal",
+      "navigation": [
+        {
+          "page": "api-reference/index",
+          "title": "API Reference"
+        }
+      ]
+    },
+    {
+      "tab": "Changelog",
+      "icon": "clock-rotate-left",
+      "navigation": [
+        {
+          "page": "changelog/index"
+        },
+        {
+          "group": "2026",
+          "pages": [
+            {
+              "page": "changelog/2026/product-update"
+            },
+            {
+              "page": "changelog/2026/product-update-1"
+            }
+          ]
+        },
+        {
+          "group": "2025",
+          "pages": [
+            {
+              "page": "changelog/2025/product-update"
+            },
+            {
+              "page": "changelog/2025/product-update-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Help Center",
+      "icon": "life-ring",
+      "navigation": [
+        {
+          "page": "help-center/index"
+        },
+        {
+          "group": "Getting started",
+          "pages": [
+            {
+              "page": "help-center/getting-started/getting-started-checklist"
+            },
+            {
+              "page": "help-center/getting-started/whats-the-difference-between-a-workspace-and-a-project"
+            },
+            {
+              "page": "help-center/getting-started/setting-up-a-custom-domain"
+            }
+          ]
+        },
+        {
+          "group": "Plans and billing",
+          "pages": [
+            {
+              "page": "help-center/plans-billing/how-do-i-change-my-plan"
+            },
+            {
+              "page": "help-center/plans-billing/billing-faq"
+            }
+          ]
+        },
+        {
+          "group": "Admin",
+          "pages": [
+            {
+              "page": "help-center/admin/inviting-team-members-to-your-workspace"
+            },
+            {
+              "page": "help-center/admin/sso-configuration-guide"
+            },
+            {
+              "page": "help-center/admin/managing-api-keys"
+            }
+          ]
+        },
+        {
+          "group": "Integrations",
+          "pages": [
+            {
+              "page": "help-center/integrations/connecting-a-third-party-app"
+            },
+            {
+              "page": "help-center/integrations/why-isnt-my-integration-syncing"
+            },
+            {
+              "page": "help-center/integrations/api-rate-limits-and-quotas"
+            }
+          ]
+        },
+        {
+          "group": "Community",
+          "pages": [
+            {
+              "page": "help-center/community/contributing-to-the-platform"
+            },
+            {
+              "link": "Discord community",
+              "href": "https://www.gitbook.com/"
+            },
+            {
+              "link": "GitHub",
+              "href": "https://www.gitbook.com/"
+            }
+          ]
+        },
+        {
+          "divider": ""
+        },
+        {
+          "link": "Product updates",
+          "href": "/changelog"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/readme",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/developer-platform",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/readme",
+      "destination": "/documentation",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/welcome",
+      "destination": "/documentation",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/readme",
+      "destination": "/changelog",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/changelog",
+      "destination": "/changelog",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/readme",
+      "destination": "/help-center",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/help-center",
+      "destination": "/help-center",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/getting-started",
+      "destination": "/documentation/getting-started/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/core-concepts",
+      "destination": "/documentation/core-concepts/core-concepts",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/guides",
+      "destination": "/documentation/guides/guides",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/reference",
+      "destination": "/documentation/reference/reference",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/2026",
+      "destination": "/changelog/2026/product-update",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/2025",
+      "destination": "/changelog/2025/product-update",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/getting-started",
+      "destination": "/help-center/getting-started/getting-started-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/plans-billing",
+      "destination": "/help-center/plans-billing/how-do-i-change-my-plan",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/admin",
+      "destination": "/help-center/admin/inviting-team-members-to-your-workspace",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/integrations",
+      "destination": "/help-center/integrations/connecting-a-third-party-app",
+      "permanent": true
+    },
+    {
+      "source": "/help-center/community",
+      "destination": "/help-center/community/contributing-to-the-platform",
+      "permanent": true
+    }
+  ]
+}
