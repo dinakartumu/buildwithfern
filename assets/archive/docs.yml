@@ -1,0 +1,68 @@
+# A REAL Fern site config, shaped after an actual customer migration.
+#
+# Deliberately carries the things that bit us in production rather than a clean
+# happy path: an `instances` entry with a basePath (dropped by the converter, the
+# notice that never reached a human), `metadata.og:*` keys with no docs.json
+# equivalent, an unsupported analytics provider, a `logo.height`, and redirects
+# written against the instance's `/docs` prefix.
+instances:
+  - url: acme.docs.buildwithfern.com/docs
+    custom-domain: acme.com/docs
+
+title: Acme
+favicon: ./assets/favicon.png
+logo:
+  light: ./assets/logo-light.svg
+  dark: ./assets/logo-dark.svg
+  height: 28
+
+colors:
+  accent-primary:
+    light: "#418326"
+    dark: "#ADFF8C"
+  background:
+    dark: "#0d0e11"
+
+metadata:
+  og:title: Acme
+  og:description: Acme developer docs
+
+analytics:
+  ga4:
+    measurement-id: G-XXXXXXX
+
+redirects:
+  - source: "/docs/old-intro"
+    destination: "/docs/introduction"
+    permanent: true
+
+navigation:
+  - section: Introduction
+    contents:
+      - page: Introduction
+        path: ./pages/introduction.mdx
+      - page: Getting started
+        path: ./pages/getting-started.mdx
+      - link: Community
+        href: https://discord.gg/acme
+  - section: Guides
+    contents:
+      - page: Callouts and components
+        path: ./pages/guides/components.mdx
+      - page: Dynamic values
+        path: ./pages/guides/expressions.mdx
+      - page: Styled tables
+        path: ./pages/guides/exports.mdx
+  # EPD-2626. A `section:` that ALSO declares a `path:` — Fern's way of saying
+  # "this folder is itself a page". Fyno's docs.yml does this 39 times. The
+  # converter used to demote that page to the group's first child; it now
+  # emits it as the group's `landing`, and the nested `SMS` section proves a
+  # child section keeps its own.
+  - section: Integrations
+    path: ./pages/integrations.mdx
+    contents:
+      - section: SMS
+        path: ./pages/integrations/sms.mdx
+        contents:
+          - page: Twilio
+            path: ./pages/integrations/sms/twilio.mdx
