@@ -1,1 +1,84 @@
-{}
+{
+  "$schema": "https://docs.pageloop.ai/schema/v1.json",
+  "site": {
+    "name": "Acme",
+    "basePath": "/docs",
+    "description": "Acme developer docs",
+    "favicon": "fern/assets/favicon.png"
+  },
+  "theme": {
+    "colors": {
+      "primary": "#418326",
+      "light": "#418326",
+      "dark": "#ADFF8C"
+    },
+    "logo": {
+      "light": "fern/assets/logo-light.svg",
+      "dark": "fern/assets/logo-dark.svg"
+    }
+  },
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": [
+        {
+          "page": "introduction/introduction",
+          "title": "Introduction"
+        },
+        {
+          "page": "introduction/getting-started",
+          "title": "Getting started"
+        },
+        {
+          "link": "Community",
+          "href": "https://discord.gg/acme"
+        }
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        {
+          "page": "guides/components",
+          "title": "Callouts and components"
+        },
+        {
+          "page": "guides/expressions",
+          "title": "Dynamic values"
+        },
+        {
+          "page": "guides/exports",
+          "title": "Styled tables"
+        }
+      ]
+    },
+    {
+      "group": "Integrations",
+      "landing": "integrations",
+      "pages": [
+        {
+          "group": "SMS",
+          "landing": "integrations/sms",
+          "pages": [
+            {
+              "page": "integrations/sms/twilio",
+              "title": "Twilio"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/docs/old-intro",
+      "destination": "/docs/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/docs/introduction/introduction",
+      "permanent": false
+    }
+  ]
+}
